@@ -253,3 +253,48 @@ come back to this.
 
 https://www.typescriptlang.org/docs/handbook/2/conditional-types.html
 
+//********************************************************************************
+
+### Classes in TypeScript
+
+```ts
+class Greeter {
+  // creates a readonly instance field
+  // prevents assingment to field outside of constructor
+  readonly name: string = 'world';
+
+  constructor(otherName?: string) {
+    // Can override value in constructor
+    if (otherName !== undefined) {
+      this.name = otherName;
+    }
+  }
+}
+
+const greeter = new Greeter('Joe');
+
+// Cannot override value after initialization.
+// greeter.name = 'Sam';
+```
+
+//********************************************************************************
+
+### Modules
+
+https://www.typescriptlang.org/docs/handbook/2/modules.html
+
+#### ES Modules
+- Any file containing a top-level import or export is considered a module.
+- A file without a top-level import or export is treated as a script whose contents are available in the global scope.
+
+Types and interfaces can imported and exported using import / export sytax.
+
+TypeScript adds type imports
+```ts
+import type { Cat, Dog } from './animal';
+```
+
+#### Module Resolution
+https://www.typescriptlang.org/docs/handbook/module-resolution.html
+
+//********************************************************************************
